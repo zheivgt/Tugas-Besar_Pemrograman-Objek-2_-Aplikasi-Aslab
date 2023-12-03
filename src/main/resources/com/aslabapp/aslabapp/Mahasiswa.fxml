@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.swardana.materialiconfx.control.MaterialIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="925.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MahasiswaController">
+   <TableView id="tabelmahasiswa" fx:id="tabelmahasiswa" layoutX="18.0" layoutY="14.0" prefHeight="643.0" prefWidth="494.0" stylesheets="@../../../css/style.css">
+      <columns>
+         <TableColumn id="nim" fx:id="nim" prefWidth="125.60000038146973" style="-fx-bacground-radius: 25 25 0 0; -fx-background-insets: 0 0 0 0;" text="NIM" />
+         <TableColumn id="nama" fx:id="nama" prefWidth="71.20001220703125" style="-fx-bacground-radius: 25 25 0 0; -fx-background-insets: 0 0 0 0;" text="Nama" />
+         <TableColumn id="nohp" fx:id="nohp" prefWidth="252.80001831054688" style="-fx-bacground-radius: 25 25 0 0; -fx-background-insets: 0 0 0 0;" text="No HP" />
+      </columns>
+      <columnResizePolicy>
+         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+      </columnResizePolicy>
+   </TableView>
+   <Pane fx:id="clearmhs" layoutX="526.0" layoutY="436.0" prefHeight="221.0" prefWidth="374.0" styleClass="content-pane" stylesheets="@../../../css/style.css">
+      <Button layoutX="31.0" layoutY="36.0" mnemonicParsing="false" onAction="#tambah" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #04ff00; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);" styleClass="sidebar-butotn" stylesheets="@../../../css/style.css" text="Tambah Mahasiswa">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="31.0" layoutY="95.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #009dff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);" styleClass="sidebar-butotn" stylesheets="@../../../css/style.css" text="Update Mahasiswa">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="202.0" layoutY="36.0" mnemonicParsing="false" onAction="#hapus" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #ff0000; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);" styleClass="sidebar-butotn" stylesheets="@../../../css/style.css" text="Hapus Mahasiswa">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="202.0" layoutY="95.0" mnemonicParsing="false" onAction="#clearmhs" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #fa00bb; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);" styleClass="sidebar-butotn" stylesheets="@../../../css/style.css" text="Clear">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="29.0" layoutY="152.0" mnemonicParsing="false" onAction="#pesantugas" prefHeight="40.0" prefWidth="334.0" style="-fx-background-color: #25d366; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);" styleClass="sidebar-butotn" stylesheets="@../../../css/style.css" text=" Kirim Pesan WhatsApp">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+         <graphic>
+            <MaterialIcon color="WHITE" content="CHAT" size="25" />
+         </graphic>
+      </Button>
+   </Pane>
+   <Pane layoutX="526.0" layoutY="21.0" prefHeight="386.0" prefWidth="374.0" styleClass="content-pane" stylesheets="@../../../css/style.css">
+      <TextField fx:id="fieldnim" layoutX="26.0" layoutY="80.0" prefHeight="44.0" prefWidth="323.0" promptText="Masukan NIM" />
+      <TextField fx:id="fieldnama" layoutX="28.0" layoutY="186.0" prefHeight="44.0" prefWidth="323.0" promptText="Masukan Nama" />
+      <TextField fx:id="fieldnohp" layoutX="28.0" layoutY="302.0" prefHeight="44.0" prefWidth="323.0" promptText="Masukan No HP" />
+      <Text fill="WHITE" layoutX="166.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NIM" textAlignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS" size="19.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="162.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No HP" textAlignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS" size="19.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="162.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nama" textAlignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS" size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="warningNIM" fill="#ff0707" layoutX="26.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Masukan NIM dengan format yang sesuai" visible="false">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="warningNAMA" fill="#ff0707" layoutX="26.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Masukan Nama dengan format yang sesuai" visible="false">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="warningNoHP" fill="#ff0707" layoutX="26.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Masukan No HP dengan format yang sesuai" visible="false">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="emptyNIM" fill="#ff0707" layoutX="26.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Harap isi bidang ini" visible="false">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="emptyNAMA" fill="#ff0707" layoutX="26.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Harap isi bidang ini" visible="false">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="emptyNoHP" fill="#ff0707" layoutX="26.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="* Harap isi bidang ini" visible="false">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </Text>
+   </Pane>
+</Pane>
